@@ -15,11 +15,40 @@ class DeckTest < Minitest::Test
 
   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
 
-  # cards = [card_1, card_2, card_3]
-  # deck = Deck.new(cards)
-  deck = Deck.new(card_1, card_2, card_3)
+  cards = [card_1, card_2, card_3]
+  deck = Deck.new(cards)
 
-    assert_instance_of Deck, deck
+  assert_instance_of Deck, deck
+  end
+
+  def test_it_counts
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+    card_count = deck.count
+
+    assert_equal card_count , 3
+  end
+
+  def test_card_category
+    card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+
+    card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+
+    card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+
+    cards = [card_1, card_2, card_3]
+    deck = Deck.new(cards)
+
+
+    assert_equal [card_2, card_3] , deck.cards_in_category(:STEM)
+
+
   end
 
 
