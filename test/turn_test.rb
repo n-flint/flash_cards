@@ -3,10 +3,7 @@ require 'minitest/pride'
 require './lib/turn'
 require './lib/card'
 
-
-
 class TurnTest < Minitest::Test
-
 
   def test_it_exists
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -14,7 +11,6 @@ class TurnTest < Minitest::Test
 
     assert_instance_of Turn, turn
   end
-
 
   def test_it_has_guess
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
@@ -44,15 +40,10 @@ class TurnTest < Minitest::Test
     assert_equal "Correct!", turn.feedback
   end
 
-
   def test_feedback_false
     card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     turn = Turn.new("Alaska Town", card)
 
     assert_equal "Incorrect", turn.feedback
-
-
-
-
   end
 end

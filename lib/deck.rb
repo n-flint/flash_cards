@@ -1,33 +1,26 @@
-require 'pry'
-
-
-
 class Deck
-  attr_reader :question, :answer, :category, :cards
 
+  attr_reader :question,
+              :answer,
+              :category,
+              :cards
 
-
-
-def initialize(cards)
-  @cards = cards
-end
-
-def count
-  cards.count
-
-end
-
-def cards_in_category(category)
-  cards_in_category = []
-  cards.each do |card|
-    if card.category == category
-      cards_in_category << card
-
-    end
+  def initialize(cards)
+    @cards = cards
   end
+
+  def count
+    cards.count
+  end
+
+  def cards_in_category(category)
+    cards_in_category = []
+    cards.each do |card|
+      if card.category == category
+        cards_in_category << card
+      end
+    end
   return cards_in_category
-end
-
-
-
+  end
+  
 end
