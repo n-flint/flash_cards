@@ -14,4 +14,5 @@ class Round
   def take_turn(tt_argument)
     @new_turn = Turn.new(tt_argument, @current_card)
   end
+  
 end

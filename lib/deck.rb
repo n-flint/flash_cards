@@ -16,7 +16,7 @@ class Deck
       if card.category == category
         cards_in_category << card
       end
-    end
+    end 
   return cards_in_category
   end
 
