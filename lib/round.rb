@@ -32,4 +32,23 @@ class Round
     return correct_guesses
   end
 
+  def number_correct_by_category(category)
+    correct_guesses_by_category = 0
+    @turns.each do |turn|
+      if turn.correct? == true
+      correct_guesses_by_category += 1
+      end
+    end
+    return correct_guesses_by_category
+  end
+
+
+
+
+
+
+
+
+
+
 end
