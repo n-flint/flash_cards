@@ -11,8 +11,25 @@ class Round
     @turns = []
   end
 
-  def take_turn(tt_argument)
-    @new_turn = Turn.new(tt_argument, @current_card)
+  def take_turn(guess)
+    @new_turn = Turn.new(guess, @current_card)
+    #shovel the current card into the @turns array
+    @turns << @new_turn
+    deck_index = @deck.cards.index(@current_card)
+    deck_index += 1
+    @current_card = @deck.cards[deck_index]
+    # require "pry"; binding.pry
+    return @new_turn
   end
-  
+
+  def number_correct
+    correct_guesses = 0
+    @turns.each do |turn|
+      if turn.correct? == true
+      correct_guesses += 1
+      end
+    end
+    return correct_guesses
+  end
+
 end
